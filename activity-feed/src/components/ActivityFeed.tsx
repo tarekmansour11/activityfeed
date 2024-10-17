@@ -126,19 +126,23 @@ const ActivityFeed: React.FC = () => {
                         )}
                       </p>
                       <p>
-  <strong>Occupancy:</strong> {(row.output_occupied * 100).toFixed(2)}%
-  {row.comparison_occupied !== null && row.comparison_occupied !== undefined && (
-    (() => {
-      const occDiff = ((( row.comparison_occupied - row.output_occupied)) * 100).toFixed(2);
-      const occClass = Number(occDiff) >= 0 ? 'positive' : 'negative';
-      return (
-        <span className={occClass}>
-          ({occDiff}%)
-        </span>
-      );
-    })()
-  )}
-</p>
+                        <strong>Occupancy:</strong>{' '}
+                        {(row.output_occupied * 100).toFixed(2)}%
+                        {row.comparison_o_unit > 0 &&
+                          row.comparison_occupied !== null &&
+                          row.comparison_occupied !== undefined &&
+                          (() => {
+                            const occDiff = (
+                              (row.comparison_occupied - row.output_occupied) *
+                              100
+                            ).toFixed(2);
+                            const occClass =
+                              Number(occDiff) >= 0 ? 'positive' : 'negative';
+                            return (
+                              <span className={occClass}>({occDiff}%)</span>
+                            );
+                          })()}
+                      </p>
 
                       <p>
                         <strong>Area:</strong> {formatNumber(row.output_o_lettable_area_contracted_sqm)} sqm
