@@ -119,7 +119,7 @@ const ActivityFeed: React.FC = () => {
                             const unitClass = unitDiff >= 0 ? 'positive' : 'negative';
                             return (
                               <span className={unitClass}>
-                                ({unitDiff})
+                                &nbsp;({unitDiff})
                               </span>
                             );
                           })()
@@ -127,7 +127,7 @@ const ActivityFeed: React.FC = () => {
                       </p>
                       <p>
                         <strong>Occupancy:</strong>{' '}
-                        {(row.output_occupied * 100).toFixed(2)}%
+                        {(row.output_occupied * 100).toFixed(2)}%&nbsp;
                         {row.comparison_o_unit > 0 &&
                           row.comparison_occupied !== null &&
                           row.comparison_occupied !== undefined &&
@@ -139,27 +139,27 @@ const ActivityFeed: React.FC = () => {
                             const occClass =
                               Number(occDiff) >= 0 ? 'positive' : 'negative';
                             return (
-                              <span className={occClass}>({occDiff}%)</span>
+                              <span className={occClass}>&nbsp;({occDiff}%)</span>
                             );
                           })()}
                       </p>
 
                       <p>
-                        <strong>Area:</strong> {formatNumber(row.output_o_lettable_area_contracted_sqm)} sqm
+                        <strong>Area:</strong> {formatNumber(row.output_o_lettable_area_contracted_sqm)} SQM&nbsp;
                         {row.comparison_o_lettable_area_contracted_sqm !== null && row.output_o_lettable_area_contracted_sqm !== 0 && (
                           (() => {
                             const areaDiff = (((row.output_o_lettable_area_contracted_sqm - row.comparison_o_lettable_area_contracted_sqm) / row.output_o_lettable_area_contracted_sqm) * 100).toFixed(2);
                             const areaClass = Number(areaDiff) >= 0 ? 'positive' : 'negative';
                             return (
                               <span className={areaClass}>
-                                ({areaDiff}%)
+                                &nbsp;({areaDiff}%)
                               </span>
                             );
                           })()
                         )}
                       </p>
                       <p>
-                        <strong>Rent:</strong> {formatNumber(row.output_contracted_rent_pa)} EUR
+                        <strong>Rent:</strong> {formatNumber(row.output_contracted_rent_pa)} EUR&nbsp;
                         {row.comparison_contracted_rent_pa !== null && (
                           (() => {
                             const currentRent = row.output_contracted_rent_pa ?? 0;
@@ -168,21 +168,21 @@ const ActivityFeed: React.FC = () => {
                             const rentClass = (currentRent - comparisonRent) >= 0 ? 'positive' : 'negative';
                             return (
                               <span className={rentClass}>
-                                ({rentDiff}%)
+                                &nbsp;({rentDiff}%)
                               </span>
                             );
                           })()
                         )}
                       </p>
                       <p>
-                        <strong>WALT:</strong> {row.output_walt_first_break_expiry?.toFixed(2) ?? 'N/A'} years
+                        <strong>WALT:</strong> {row.output_walt_first_break_expiry?.toFixed(2) ?? 'N/A'} years&nbsp;
                         {row.comparison_walt_first_break_expiry !== null && row.output_walt_first_break_expiry !== 0 && (
                           (() => {
                             const waltDiff = ((( row.output_walt_first_break_expiry - row.comparison_walt_first_break_expiry) / row.output_walt_first_break_expiry) * 100).toFixed(2);
                             const waltClass = Number(waltDiff) >= 0 ? 'positive' : 'negative';
                             return (
                               <span className={waltClass}>
-                                ({waltDiff}%)
+                                &nbsp;({waltDiff}%)
                               </span>
                             );
                           })()
@@ -190,9 +190,8 @@ const ActivityFeed: React.FC = () => {
                       </p>
                     </div>
                     <div className="badge-container">
-                    <div className="badge">{row.portfolio_name[1] ?? 'Portfolio Name'}</div>
-                    <div className="badge">{row.project_name[1] ?? 'Project Name'}</div>
-
+                      <div className="badge">{row.portfolio_name[1] ?? 'Portfolio Name'}</div>
+                      <div className="badge">{row.project_name[1] ?? 'Project Name'}</div>
                     </div>
                     <div className="action-buttons">
                       <button className="view-rent-roll">View Rent Roll</button>
