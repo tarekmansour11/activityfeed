@@ -11,7 +11,7 @@ type Activity = {
   object_database_id: number;
   object_database_name: string;
   user_email: string;
-  read: boolean; // Added read type
+  read: boolean;
   rowsThisPage?: Array<{
     output_candidate_rentroll_id: number[];
     comparison_o_lettable_area_contracted_sqm: number | null;
@@ -67,6 +67,15 @@ const formatEventType = (type: string) => {
     .replace('user-removed-from-db', 'Database Access Revoked');
 };
 
+const formatNumber = (num: number): string => {
+  if (Math.abs(num) >= 1_000_000) {
+    return (num / 1_000_000).toFixed(2) + 'M';
+  } else if (Math.abs(num) >= 1_000) {
+    return (num / 1_000).toFixed(2) + 'K';
+  }
+  return num.toFixed(2);
+};
+
 const ActivityFeed: React.FC = () => {
   const groupedActivities = groupByDate(tempData as Activity[]);
 
@@ -79,6 +88,7 @@ const ActivityFeed: React.FC = () => {
           {activities.map((activity, index) => {
             const details = JSON.parse(activity.details);
             const rentrollDate = details.rentroll_date ? formatDate(details.rentroll_date) : 'N/A';
+            const row = activity.rowsThisPage?.[0];
 
             return (
               <div key={index} className="activity-item">
@@ -96,16 +106,84 @@ const ActivityFeed: React.FC = () => {
                   <p className="user-database">{activity.user_email}</p>
                   <p className="user-database">{activity.object_database_name}</p>
                 </div>
-                {activity.event_type === 'extraction-completed' && (
+                {activity.event_type === 'extraction-completed' && row && (
                   <>
                     <div className="activity-details blue-box">
-                      <p><strong>Property Name:</strong> {activity.rowsThisPage?.[0]?.property_name[1] ?? 'N/A'}</p>
+                      <p><strong>Property Name:</strong> {row.property_name[1] ?? 'N/A'}</p>
                       <p><strong>Rent Roll Date:</strong> {rentrollDate}</p>
-                      <p><strong>Unit Count:</strong> {activity.rowsThisPage?.[0]?.output_o_unit ?? 'N/A'}</p>
-                      <p><strong>Occupancy:</strong> 86.5% <span className="positive">(+0.5%)</span></p>
-                      <p><strong>Area:</strong> 17K sqm</p>
-                      <p><strong>Rent:</strong> €4.09M <span className="positive">(+164K)</span></p>
-                      <p><strong>WALT:</strong> 1.44 years <span className="negative">(-0.04%)</span></p>
+                      <p>
+                        <strong>Unit Count:</strong> {row.output_o_unit ?? 'N/A'}
+                        {row.comparison_o_unit !== undefined && (
+                          (() => {
+                            const unitDiff = row.output_o_unit - (row.comparison_o_unit ?? 0);
+                            const unitClass = unitDiff >= 0 ? 'positive' : 'negative';
+                            return (
+                              <span className={unitClass}>
+                                ({unitDiff})
+                              </span>
+                            );
+                          })()
+                        )}
+                      </p>
+                      <p>
+  <strong>Occupancy:</strong> {(row.output_occupied * 100).toFixed(2)}%
+  {row.comparison_occupied !== null && row.comparison_occupied !== undefined && (
+    (() => {
+      const occDiff = ((( row.comparison_occupied - row.output_occupied)) * 100).toFixed(2);
+      const occClass = Number(occDiff) >= 0 ? 'positive' : 'negative';
+      return (
+        <span className={occClass}>
+          ({occDiff}%)
+        </span>
+      );
+    })()
+  )}
+</p>
+
+                      <p>
+                        <strong>Area:</strong> {formatNumber(row.output_o_lettable_area_contracted_sqm)} sqm
+                        {row.comparison_o_lettable_area_contracted_sqm !== null && row.output_o_lettable_area_contracted_sqm !== 0 && (
+                          (() => {
+                            const areaDiff = (((row.output_o_lettable_area_contracted_sqm - row.comparison_o_lettable_area_contracted_sqm) / row.output_o_lettable_area_contracted_sqm) * 100).toFixed(2);
+                            const areaClass = Number(areaDiff) >= 0 ? 'positive' : 'negative';
+                            return (
+                              <span className={areaClass}>
+                                ({areaDiff}%)
+                              </span>
+                            );
+                          })()
+                        )}
+                      </p>
+                      <p>
+                        <strong>Rent:</strong> {formatNumber(row.output_contracted_rent_pa)} EUR
+                        {row.comparison_contracted_rent_pa !== null && (
+                          (() => {
+                            const currentRent = row.output_contracted_rent_pa ?? 0;
+                            const comparisonRent = row.comparison_contracted_rent_pa ?? 0;
+                            const rentDiff = (((currentRent - comparisonRent) / currentRent) * 100).toFixed(2);
+                            const rentClass = (currentRent - comparisonRent) >= 0 ? 'positive' : 'negative';
+                            return (
+                              <span className={rentClass}>
+                                ({rentDiff}%)
+                              </span>
+                            );
+                          })()
+                        )}
+                      </p>
+                      <p>
+                        <strong>WALT:</strong> {row.output_walt_first_break_expiry?.toFixed(2) ?? 'N/A'} years
+                        {row.comparison_walt_first_break_expiry !== null && row.output_walt_first_break_expiry !== 0 && (
+                          (() => {
+                            const waltDiff = ((( row.output_walt_first_break_expiry - row.comparison_walt_first_break_expiry) / row.output_walt_first_break_expiry) * 100).toFixed(2);
+                            const waltClass = Number(waltDiff) >= 0 ? 'positive' : 'negative';
+                            return (
+                              <span className={waltClass}>
+                                ({waltDiff}%)
+                              </span>
+                            );
+                          })()
+                        )}
+                      </p>
                     </div>
                     <div className="badge-container">
                       <div className="badge">Portfolio Name</div>
@@ -119,9 +197,7 @@ const ActivityFeed: React.FC = () => {
                 )}
                 {(activity.event_type === 'user-added-to-db' || activity.event_type === 'user-removed-from-db') && (
                   <div className="database-status">
-                    <button className="view-database full-width">
-                      View Database
-                    </button>
+                    <button className="view-database full-width">View Database</button>
                   </div>
                 )}
               </div>
@@ -134,6 +210,8 @@ const ActivityFeed: React.FC = () => {
 };
 
 export default ActivityFeed;
+
+
 
 
 
