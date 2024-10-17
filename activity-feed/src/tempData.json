@@ -1,5 +1,59 @@
 [
   {
+    "read": true,
+    "audit_event_lsn": 1000054,
+    "details": "{\"dbId\": 7, \"userId\": 8632, \"companyId\": 3011}",
+    "event_time": "2024-10-17T15:07:42.414893Z",
+    "event_type": "user-removed-from-db",
+    "object_database_company_name": null,
+    "object_database_id": null,
+    "object_database_name": null,
+    "user_email": "sfehrenbach@proda.ai"
+  },
+  {
+    "read": true,
+    "audit_event_lsn": 1000052,
+    "details": "{\"rentrolls\": [{\"property_id\": 125, \"rentroll_id\": 157}], \"extraction_id\": 129, \"rentroll_date\": \"2019-01-16\"}",
+    "event_time": "2024-10-17T13:24:56.946469Z",
+    "event_type": "extraction-completed",
+    "object_database_company_name": "PRODA Demo",
+    "object_database_id": 1,
+    "object_database_name": "Main Database",
+    "user_email": "sfehrenbach@proda.ai",
+    "rowsThisPage": [
+      {
+        "output_candidate_rentroll_id": [
+          1,
+          129
+        ],
+        "comparison_o_lettable_area_contracted_sqm": 12132.4989,
+        "property_name": [
+          1,
+          "Victoria, BC, Canada"
+        ],
+        "output_o_lettable_area_contracted_sqm": 11893.6859,
+        "portfolio_name": [
+          0,
+          null
+        ],
+        "CONSTANT": true,
+        "output_walt_first_break_expiry": 3.3555797021614637,
+        "output_contracted_rent_pa": 629364.449769,
+        "comparison_occupied": 0.9411492549156547,
+        "comparison_o_unit": 28,
+        "comparison_walt_first_break_expiry": 2.8558324768183545,
+        "comparison_contracted_rent_pa": 601370.59823616,
+        "project_name": [
+          0,
+          null
+        ],
+        "output_o_unit": 28,
+        "output_occupied": 0.9292331320099853
+      }
+    ]
+  },
+  {
+    "read": true,
     "audit_event_lsn": 1000043,
     "details": "{}",
     "event_time": "2024-10-17T08:25:11.346604Z",
@@ -10,6 +64,7 @@
     "user_email": "sfehrenbach@proda.ai"
   },
   {
+    "read": true,
     "audit_event_lsn": 1000037,
     "details": "{\"rentrolls\": [{\"property_id\": 125, \"rentroll_id\": 157}], \"extraction_id\": 129, \"rentroll_date\": \"2019-01-16\"}",
     "event_time": "2024-10-16T16:03:17.312695Z",
@@ -18,46 +73,123 @@
     "object_database_id": 1,
     "object_database_name": "Main Database",
     "user_email": "sfehrenbach@proda.ai",
-    "rowsThisPage": [{
-      "output_candidate_rentroll_id": [1, 129],
-      "comparison_o_lettable_area_contracted_sqm": 12132.4989,
-      "property_name": [1, "Victoria, BC, Canada"],
-      "output_o_lettable_area_contracted_sqm": 11686.5259,
-      "portfolio_name": [1, "Portfolio ABC"],
-      "CONSTANT": true,
-      "output_walt_first_break_expiry": 3.355,
-      "output_contracted_rent_pa": 629364.449769,
-      "comparison_occupied": 0.941,
-      "comparison_o_unit": 28,
-      "comparison_walt_first_break_expiry": 2.856,
-      "comparison_contracted_rent_pa": 601370.59823616,
-      "project_name": [0, "Project XYZ"],
-      "output_o_unit": 28,
-      "output_occupied": 0.928
-    }]
+    "rowsThisPage": [
+      {
+        "output_candidate_rentroll_id": [
+          1,
+          129
+        ],
+        "comparison_o_lettable_area_contracted_sqm": 12132.4989,
+        "property_name": [
+          1,
+          "Victoria, BC, Canada"
+        ],
+        "output_o_lettable_area_contracted_sqm": 11893.6859,
+        "portfolio_name": [
+          0,
+          null
+        ],
+        "CONSTANT": true,
+        "output_walt_first_break_expiry": 3.3555797021614637,
+        "output_contracted_rent_pa": 629364.449769,
+        "comparison_occupied": 0.9411492549156547,
+        "comparison_o_unit": 28,
+        "comparison_walt_first_break_expiry": 2.8558324768183545,
+        "comparison_contracted_rent_pa": 601370.59823616,
+        "project_name": [
+          0,
+          null
+        ],
+        "output_o_unit": 28,
+        "output_occupied": 0.9292331320099853
+      }
+    ]
   },
   {
-    "audit_event_lsn": 1000050,
-    "details": "{}",
-    "event_time": "2024-10-15T13:17:00.540312Z",
-    "event_type": "access-revoked",
+    "read": true,
+    "audit_event_lsn": 1000018,
+    "details": "{\"rentrolls\": [{\"property_id\": 125, \"rentroll_id\": 157}], \"extraction_id\": 129, \"rentroll_date\": \"2019-01-16\"}",
+    "event_time": "2024-09-11T13:23:00.540312Z",
+    "event_type": "extraction-completed",
     "object_database_company_name": "PRODA Demo",
     "object_database_id": 1,
     "object_database_name": "Main Database",
-    "user_email": "sfehrenbach@proda.ai"
+    "user_email": "sfehrenbach@proda.ai",
+    "rowsThisPage": [
+      {
+        "output_candidate_rentroll_id": [
+          1,
+          129
+        ],
+        "comparison_o_lettable_area_contracted_sqm": 12132.4989,
+        "property_name": [
+          1,
+          "Victoria, BC, Canada"
+        ],
+        "output_o_lettable_area_contracted_sqm": 11893.6859,
+        "portfolio_name": [
+          0,
+          null
+        ],
+        "CONSTANT": true,
+        "output_walt_first_break_expiry": 3.3555797021614637,
+        "output_contracted_rent_pa": 629364.449769,
+        "comparison_occupied": 0.9411492549156547,
+        "comparison_o_unit": 28,
+        "comparison_walt_first_break_expiry": 2.8558324768183545,
+        "comparison_contracted_rent_pa": 601370.59823616,
+        "project_name": [
+          0,
+          null
+        ],
+        "output_o_unit": 28,
+        "output_occupied": 0.9292331320099853
+      }
+    ]
   },
   {
-    "audit_event_lsn": 1000051,
-    "details": "{}",
-    "event_time": "2024-10-16T18:37:00.540312Z",
-    "event_type": "access-granted",
+    "read": true,
+    "audit_event_lsn": 1000008,
+    "details": "{\"rentrolls\": [{\"property_id\": 125, \"rentroll_id\": 156}], \"extraction_id\": 128, \"rentroll_date\": \"2018-04-16\"}",
+    "event_time": "2024-09-11T13:22:06.009901Z",
+    "event_type": "extraction-completed",
     "object_database_company_name": "PRODA Demo",
     "object_database_id": 1,
     "object_database_name": "Main Database",
-    "user_email": "sfehrenbach@proda.ai"
+    "user_email": "sfehrenbach@proda.ai",
+    "rowsThisPage": [
+      {
+        "output_candidate_rentroll_id": [
+          1,
+          128
+        ],
+        "comparison_o_lettable_area_contracted_sqm": null,
+        "property_name": [
+          1,
+          "Victoria, BC, Canada"
+        ],
+        "output_o_lettable_area_contracted_sqm": 12132.4989,
+        "portfolio_name": [
+          0,
+          null
+        ],
+        "CONSTANT": true,
+        "output_walt_first_break_expiry": 2.8558324768183545,
+        "output_contracted_rent_pa": 589997.58467072,
+        "comparison_occupied": 0,
+        "comparison_o_unit": 0,
+        "comparison_walt_first_break_expiry": null,
+        "comparison_contracted_rent_pa": null,
+        "project_name": [
+          0,
+          null
+        ],
+        "output_o_unit": 28,
+        "output_occupied": 0.9411492549156547
+      }
+    ]
   }
 ]
-
   
 
   

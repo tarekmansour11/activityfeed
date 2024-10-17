@@ -1,89 +1,96 @@
 .activity-feed {
-    font-size: 13px; /* Slightly smaller font */
-  }
-  
-  .event-title {
-    font-size: 1.05em;
-    font-weight: bold;
-    color: black;
-  }
-  
-  .event-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .dot-indicator {
-    height: 8px;
-    width: 8px;
-    background-color: red;
-    border-radius: 50%;
-  }
-  
-  .event-time {
-    margin-left: auto;
-    font-size: 0.85em;
-    color: black;
-  }
-  
-  .user-database {
-    font-size: 0.8em;
-    color: gray;
-    margin-top: -0.3em;
-  }
-  
-  .blue-box {
-    background-color: #e8f3fc; /* Light blue background */
-    padding: 8px;
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  .badge {
-    display: inline-block;
-    font-size: 0.85em;
-    padding: 5px;
-    text-align: center;
-    border-radius: 5px;
-  }
-  
-  .left-badge {
-    width: 49%;
-    float: left;
-  }
-  
-  .right-badge {
-    width: 49%;
-    float: right;
-  }
-  
-  .action-buttons button {
-    width: 49%;
-    font-size: 0.85em;
-    margin: 5px 1%;
-    padding: 6px;
-  }
-  
-  .view-database {
-    width: 100%;
-    font-size: 0.85em;
-    padding: 8px;
-    background-color: #5a5a5a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .positive {
-    color: green;
-  }
-  
-  .negative {
-    color: red;
-  }
-  
-  
+  font-size: 13px; /* Slightly smaller font */
+}
+
+.event-title {
+  font-size: 1.05em;
+  font-weight: bold;
+  color: black;
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot-indicator {
+  height: 8px;
+  width: 8px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.event-time {
+  margin-left: auto;
+  font-size: 0.85em;
+  color: black;
+}
+
+.user-database {
+  font-size: 0.8em;
+  color: gray;
+  margin-top: -0.3em;
+}
+
+.blue-box {
+  background-color: #e8f3fc; /* Light blue background */
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.badge-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.badge {
+  width: 48%; /* Make each badge occupy roughly half the space */
+  font-size: 0.75em;
+  padding: 6px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #e0e0e0; /* Adjust this as needed */
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.action-buttons button {
+  flex: 1; /* Equal width for both buttons */
+  font-size: 0.85em;
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5a5a5a; /* Match database button color */
+  color: white;
+  text-align: center;
+}
+
+.view-database {
+  width: 100%;
+  font-size: 0.85em;
+  padding: 8px;
+  background-color: #5a5a5a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
   
   
   
