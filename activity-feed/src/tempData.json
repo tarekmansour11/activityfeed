@@ -34,7 +34,7 @@
         "output_o_lettable_area_contracted_sqm": 11893.6859,
         "portfolio_name": [
           0,
-          null
+          "Proda Portfolio"
         ],
         "CONSTANT": true,
         "output_walt_first_break_expiry": 3.3555797021614637,
@@ -45,7 +45,7 @@
         "comparison_contracted_rent_pa": 601370.59823616,
         "project_name": [
           0,
-          null
+          "Proda Project"
         ],
         "output_o_unit": 28,
         "output_occupied": 0.9292331320099853

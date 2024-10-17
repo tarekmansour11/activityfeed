@@ -190,8 +190,9 @@ const ActivityFeed: React.FC = () => {
                       </p>
                     </div>
                     <div className="badge-container">
-                      <div className="badge">Portfolio Name</div>
-                      <div className="badge">Project Name</div>
+                    <div className="badge">{row.portfolio_name[1] ?? 'Portfolio Name'}</div>
+                    <div className="badge">{row.project_name[1] ?? 'Project Name'}</div>
+
                     </div>
                     <div className="action-buttons">
                       <button className="view-rent-roll">View Rent Roll</button>
