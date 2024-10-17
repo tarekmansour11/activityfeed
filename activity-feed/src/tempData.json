@@ -1,0 +1,63 @@
+[
+  {
+    "audit_event_lsn": 1000043,
+    "details": "{}",
+    "event_time": "2024-10-17T08:25:11.346604Z",
+    "event_type": "user-added-to-db",
+    "object_database_company_name": "PRODA Demo",
+    "object_database_id": 7,
+    "object_database_name": "Testing",
+    "user_email": "sfehrenbach@proda.ai"
+  },
+  {
+    "audit_event_lsn": 1000037,
+    "details": "{\"rentrolls\": [{\"property_id\": 125, \"rentroll_id\": 157}], \"extraction_id\": 129, \"rentroll_date\": \"2019-01-16\"}",
+    "event_time": "2024-10-16T16:03:17.312695Z",
+    "event_type": "extraction-completed",
+    "object_database_company_name": "PRODA Demo",
+    "object_database_id": 1,
+    "object_database_name": "Main Database",
+    "user_email": "sfehrenbach@proda.ai",
+    "rowsThisPage": [{
+      "output_candidate_rentroll_id": [1, 129],
+      "comparison_o_lettable_area_contracted_sqm": 12132.4989,
+      "property_name": [1, "Victoria, BC, Canada"],
+      "output_o_lettable_area_contracted_sqm": 11686.5259,
+      "portfolio_name": [1, "Portfolio ABC"],
+      "CONSTANT": true,
+      "output_walt_first_break_expiry": 3.355,
+      "output_contracted_rent_pa": 629364.449769,
+      "comparison_occupied": 0.941,
+      "comparison_o_unit": 28,
+      "comparison_walt_first_break_expiry": 2.856,
+      "comparison_contracted_rent_pa": 601370.59823616,
+      "project_name": [0, "Project XYZ"],
+      "output_o_unit": 28,
+      "output_occupied": 0.928
+    }]
+  },
+  {
+    "audit_event_lsn": 1000050,
+    "details": "{}",
+    "event_time": "2024-10-15T13:17:00.540312Z",
+    "event_type": "access-revoked",
+    "object_database_company_name": "PRODA Demo",
+    "object_database_id": 1,
+    "object_database_name": "Main Database",
+    "user_email": "sfehrenbach@proda.ai"
+  },
+  {
+    "audit_event_lsn": 1000051,
+    "details": "{}",
+    "event_time": "2024-10-16T18:37:00.540312Z",
+    "event_type": "access-granted",
+    "object_database_company_name": "PRODA Demo",
+    "object_database_id": 1,
+    "object_database_name": "Main Database",
+    "user_email": "sfehrenbach@proda.ai"
+  }
+]
+
+  
+
+  
